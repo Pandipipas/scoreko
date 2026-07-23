@@ -1,6 +1,6 @@
 import { ref, watch } from 'vue';
-import en from './locales/en.json';
-import es from './locales/es.json';
+import en from './locales/en';
+import es from './locales/es';
 import { graphicsSettingsReplicant } from '../../browser_shared/replicants';
 
 export type Locale = 'en' | 'es';
