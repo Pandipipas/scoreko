@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "leftPlayerId": {
+      "type": "string",
+      "default": ""
+    },
+    "rightPlayerId": {
+      "type": "string",
+      "default": ""
+    },
+    "leftNameOverride": {
+      "type": "string",
+      "default": ""
+    },
+    "rightNameOverride": {
+      "type": "string",
+      "default": ""
+    },
+    "leftTeamOverride": {
+      "type": "string",
+      "default": ""
+    },
+    "rightTeamOverride": {
+      "type": "string",
+      "default": ""
+    },
+    "leftCountryOverride": {
+      "type": "string",
+      "default": ""
+    },
+    "rightCountryOverride": {
+      "type": "string",
+      "default": ""
+    },
+    "leftCharacter": {
+      "type": "string",
+      "default": ""
+    },
+    "rightCharacter": {
+      "type": "string",
+      "default": ""
+    },
+    "leftScore": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0
+    },
+    "rightScore": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0
+    },
+    "round": {
+      "type": "string",
+      "default": ""
+    },
+    "game": {
+      "type": "string",
+      "default": ""
+    },
+    "leftBracketStatus": {
+      "type": "string",
+      "default": ""
+    },
+    "rightBracketStatus": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": [
+    "leftPlayerId",
+    "rightPlayerId",
+    "leftNameOverride",
+    "rightNameOverride",
+    "leftTeamOverride",
+    "rightTeamOverride",
+    "leftCountryOverride",
+    "rightCountryOverride",
+    "leftCharacter",
+    "rightCharacter",
+    "leftScore",
+    "rightScore",
+    "round",
+    "game",
+    "leftBracketStatus",
+    "rightBracketStatus"
+  ],
+  "default": {
+    "leftPlayerId": "",
+    "rightPlayerId": "",
+    "leftNameOverride": "",
+    "rightNameOverride": "",
+    "leftTeamOverride": "",
+    "rightTeamOverride": "",
+    "leftCountryOverride": "",
+    "rightCountryOverride": "",
+    "leftCharacter": "",
+    "rightCharacter": "",
+    "leftScore": 0,
+    "rightScore": 0,
+    "round": "",
+    "game": "",
+    "leftBracketStatus": "",
+    "rightBracketStatus": ""
+  }
+}

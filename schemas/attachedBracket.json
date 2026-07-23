@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AttachedBracket",
+  "type": "object",
+  "properties": {
+    "provider": {
+      "type": ["string", "null"],
+      "enum": ["startgg", "challonge", null]
+    },
+    "tournamentSlug": {
+      "type": ["string", "null"]
+    },
+    "startggEventId": {
+      "type": ["string", "null"]
+    },
+    "startggPhaseId": {
+      "type": ["string", "null"]
+    },
+    "startggGroupId": {
+      "type": ["string", "null"]
+    }
+  },
+  "additionalProperties": false,
+  "required": ["provider", "tournamentSlug", "startggEventId", "startggPhaseId", "startggGroupId"],
+  "default": {
+    "provider": null,
+    "tournamentSlug": null,
+    "startggEventId": null,
+    "startggPhaseId": null,
+    "startggGroupId": null
+  }
+}

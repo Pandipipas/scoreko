@@ -1,0 +1,32 @@
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.glass-dropdown {
+  background: var(--glass-bg) !important;
+  color: var(--text-base);
+  overflow-y: auto !important;
+  overflow-x: hidden;
+
+  .q-item {
+    color: var(--text-base);
+    transition: all 0.2s ease;
+
+    &:hover, &.q-manual-focusable--focused {
+      background: rgba(230, 107, 60, 0.15) !important;
+      color: var(--q-primary) !important;
+    }
+
+    &.q-item--active {
+      background: rgba(230, 107, 60, 0.25) !important;
+      color: var(--q-primary) !important;
+      font-weight: 600;
+    }
+  }
+}

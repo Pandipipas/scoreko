@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "leftCommentator": {
+      "type": "string",
+      "default": ""
+    },
+    "leftCommentatorTwitter": {
+      "type": "string",
+      "default": ""
+    },
+    "rightCommentator": {
+      "type": "string",
+      "default": ""
+    },
+    "rightCommentatorTwitter": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": [
+    "leftCommentator",
+    "leftCommentatorTwitter",
+    "rightCommentator",
+    "rightCommentatorTwitter"
+  ],
+  "default": {
+    "leftCommentator": "",
+    "leftCommentatorTwitter": "",
+    "rightCommentator": "",
+    "rightCommentatorTwitter": ""
+  }
+}

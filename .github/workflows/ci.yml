@@ -1,0 +1,111 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - dev
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+  typecheck:
+    name: Type-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check browser code (vue-tsc)
+        run: npx vue-tsc --noEmit -p tsconfig.browser.json
+
+      - name: Type-check extension code (tsc)
+        run: npx tsc --noEmit -p tsconfig.extension.json
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [lint, typecheck]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build bundle
+        run: npm run build
+
+      - name: Verify build outputs
+        run: |
+          echo "── Dashboard ──"
+          ls -lh dashboard/ 2>/dev/null || echo "dashboard/ not found"
+          echo "── Graphics ──"
+          ls -lh graphics/ 2>/dev/null || echo "graphics/ not found"
+          echo "── Extension ──"
+          ls -lh extension/ 2>/dev/null || echo "extension/ not found"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: scoreko-build-${{ github.sha }}
+          path: |
+            dashboard/
+            graphics/
+            extension/
+            package.json
+            configschema.json
+            schemas/
+          retention-days: 7
+          if-no-files-found: warn

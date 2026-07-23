@@ -1,0 +1,15 @@
+@import '../../quasar-variables.sass';
+@import 'buttons.scss';
+@import 'fields.scss';
+@import 'panel-header.scss';
+@import 'dark-input.scss';
+
+:root {
+  --text-base: #{$text-base};
+  --text-muted: #{$text-muted};
+  --border-subtle: #{$border-subtle};
+  --border-medium: #{$border-medium};
+  --bg-subtle: #{$bg-subtle};
+  --glass-bg: #{$glass-bg};
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "gamertag": {
+        "type": "string",
+        "default": ""
+      },
+      "name": {
+        "type": "string",
+        "default": ""
+      },
+      "country": {
+        "type": "string",
+        "default": ""
+      },
+      "team": {
+        "type": "string",
+        "default": ""
+      },
+      "twitter": {
+        "type": "string",
+        "default": ""
+      }
+    },
+    "required": [
+      "gamertag",
+      "name",
+      "country",
+      "team",
+      "twitter"
+    ]
+  },
+  "default": {}
+}

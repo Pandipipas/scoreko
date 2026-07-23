@@ -1,0 +1,93 @@
+{
+  "name": "scoreko",
+  "version": "1.0.0-alpha.1",
+  "description": "NodeCG bundle for fighting games",
+  "homepage": "https://github.com/Pandipipas/scoreko#readme",
+  "bugs": {
+    "url": "https://github.com/Pandipipas/scoreko/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pandipipas/scoreko.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Pandipipas",
+  "type": "module",
+  "scripts": {
+    "autofix": "eslint . --fix",
+    "prebuild": "trash ./extension && trash ./node_modules/.vite && trash ./shared/dist && trash ./dashboard && trash ./graphics",
+    "build": "vite build && tsc -b tsconfig.extension.json",
+    "lint": "eslint .",
+    "schema-types": "nodecg schema-types",
+    "start": "nodecg start",
+    "watch": "concurrently -n B,E -c red,blue -k \"vite\" \"tsc -b -w --preserveWatchOutput tsconfig.extension.json\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@quasar/extras": "^1.17.0",
+    "@quasar/vite-plugin": "^1.12.0",
+    "@tsconfig/node24": "^24.0.0",
+    "@types/dompurify": "^3.0.5",
+    "@types/marked": "^5.0.2",
+    "@types/node": "^24.0.0",
+    "@unhead/vue": "^2.0.19",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/tsconfig": "^0.8.1",
+    "concurrently": "^9.2.1",
+    "dompurify": "^3.4.11",
+    "eslint": "^9.39.0",
+    "eslint-plugin-vue": "^10.5.1",
+    "flag-icons": "^7.5.0",
+    "marked": "^18.0.5",
+    "nodecg": "^2.8.0",
+    "nodecg-vue-composable": "^1.1.0",
+    "pinia": "^2.3.1",
+    "quasar": "^2.20.2",
+    "sass-embedded": "^1.93.3",
+    "trash-cli": "^7.0.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.12",
+    "vite-plugin-checker": "^0.11.0",
+    "vite-plugin-nodecg": "^2.1.0",
+    "vue": "^3.5.39",
+    "vue-router": "^4.5.0",
+    "vue-tsc": "^3.1.2"
+  },
+  "nodecg": {
+    "compatibleRange": "^2.8.0",
+    "dashboardPanels": [
+      {
+        "name": "scoreko",
+        "title": "scoreko",
+        "file": "scoreko/main.html",
+        "fullbleed": true
+      }
+    ],
+    "graphics": [
+      {
+        "name": "scoreboard",
+        "title": "Scoreboard",
+        "file": "scoreboard/main.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "name": "commentary",
+        "title": "Commentary",
+        "file": "commentary/main.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "overrides": {
+    "vite-plugin-nodecg": {
+      "vite": "$vite"
+    }
+  },
+  "dependencies": {
+    "country-list": "^2.4.1"
+  }
+}

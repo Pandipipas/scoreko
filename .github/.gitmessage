@@ -1,0 +1,23 @@
+# <type>(<scope>): <short imperative description>
+# Example: fix(graphics): resolve alignment issue in scoreboard
+# 
+# [Optional] Detailed description: Why is this change being made?
+
+# [Optional] Related issues (e.g. Fixes #123)
+
+# --- TYPE GUIDE ---
+# feat     : New feature
+# fix      : Bug fix
+# ui       : Visual changes / CSS / Animations
+# docs     : Documentation update (README, etc.)
+# refactor : Code change that neither adds a feature nor fixes a bug
+# chore    : Maintenance tasks (dependencies, configuration)
+# test     : Add or modify tests
+# build    : Changes that affect the build system or external dependencies
+#
+# --- COMMON SCOPES GUIDE (Optional) ---
+# Omit scope for general Scoreko changes. Use specific scopes when needed:
+# (dashboard) : Changes in the dashboard UI
+# (graphics)  : Changes in the graphics/overlays
+# (extension) : Changes in the extension logic
+# (build)     : Changes in scripts, packaging, or native modules

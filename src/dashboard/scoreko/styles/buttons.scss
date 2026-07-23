@@ -1,0 +1,63 @@
+.primary-action-btn {
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(230, 107, 60, 0.2) !important;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(230, 107, 60, 0.35) !important;
+  }
+  
+  &:active {
+    transform: scale(0.95) !important;
+  }
+}
+
+.subtle-action-btn {
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  &:active {
+    transform: scale(0.95) !important;
+  }
+}
+
+.flat-back-btn {
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.negative-action-btn {
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2) !important; 
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(244, 67, 54, 0.35) !important;
+  }
+
+  &:active {
+    transform: scale(0.95) !important;
+  }
+}
+
+.btn-active-scale {
+  &:active {
+    transform: scale(0.95) !important;
+  }
+}
