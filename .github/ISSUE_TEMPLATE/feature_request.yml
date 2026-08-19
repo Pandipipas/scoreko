@@ -1,0 +1,33 @@
+name: ✨ Feature Request
+description: Suggest an idea for Scoreko
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for Scoreko? We'd love to hear it!
+  - type: textarea
+    id: pitch
+    attributes:
+      label: The Pitch
+      description: What is the feature you want? Explain the problem it solves or the value it adds.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How do you imagine this working? Be as specific as possible.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Did you think about any other ways to solve this?
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or screenshots about the feature request here.

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DownloadStates",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": ["idle", "fetching-manifest", "downloading", "done", "error"]
+      },
+      "progress": {
+        "type": "number"
+      },
+      "error": {
+        "type": "string"
+      }
+    },
+    "required": ["status", "progress"]
+  },
+  "default": {}
+}

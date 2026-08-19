@@ -1,0 +1,150 @@
+@import '../../quasar-variables.sass';
+
+// Pulse Pop effect for numeric counter changes
+@keyframes score-pulse-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-pop {
+  animation: score-pulse-pop 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+// Spin icon effect (e.g., Swap button)
+.icon-spin-180 {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.is-spinning {
+    transform: rotate(180deg);
+  }
+}
+
+.hover-shift-right {
+  transition: padding-left 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    padding-left: 20px !important;
+  }
+}
+
+// Respiratory pulsing dot for live match status
+@keyframes live-dot-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #E66B3C;
+  display: inline-block;
+  animation: live-dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
+}
+
+// Fade in transition for character renders/images
+.img-fade-in {
+  transition: opacity 0.22s ease-in-out;
+  
+  &[src=""], &:not([src]) {
+    opacity: 0;
+  }
+}
+
+// Staggered Entrance Animations for Dashboard Grid Rows
+@keyframes dashboard-row-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-stagger-1 {
+  animation: dashboard-row-fade-in 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0ms backwards;
+}
+
+.dashboard-stagger-2 {
+  animation: dashboard-row-fade-in 0.25s cubic-bezier(0.4, 0, 0.2, 1) 60ms backwards;
+}
+
+.dashboard-stagger-3 {
+  animation: dashboard-row-fade-in 0.25s cubic-bezier(0.4, 0, 0.2, 1) 120ms backwards;
+}
+
+// Vue Transition Group for Quick Matches List
+.quick-matches-move,
+.quick-matches-enter-active,
+.quick-matches-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quick-matches-enter-from,
+.quick-matches-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+// Expand & Slide-Fade transition for ActiveMatchBanner
+.slide-fade-enter-active {
+  transition: max-height 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), margin-bottom 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+  overflow: hidden;
+  max-height: 220px;
+}
+
+.slide-fade-leave-active {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  max-height: 220px;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0 !important;
+  transform: translateY(-10px) scale(0.97);
+}
+
+// Accessibility: Respect users with reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .pulse-pop,
+  .icon-spin-180,
+  .hover-shift-right,
+  .live-pulse-dot,
+  .dashboard-stagger-1,
+  .dashboard-stagger-2,
+  .dashboard-stagger-3,
+  .quick-matches-move,
+  .quick-matches-enter-active,
+  .quick-matches-leave-active {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes breathe-positive {
+  0% { box-shadow: 0 0 4px rgba(33, 186, 69, 0.4); }
+  50% { box-shadow: 0 0 14px rgba(33, 186, 69, 0.9); }
+  100% { box-shadow: 0 0 4px rgba(33, 186, 69, 0.4); }
+}

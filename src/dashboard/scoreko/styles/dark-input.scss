@@ -1,0 +1,10 @@
+.dark-input {
+  :deep(.q-field__control) {
+    border-radius: 6px;
+    background: var(--bg-subtle);
+  }
+
+  :deep(.q-field__prepend) {
+    padding-right: 8px;
+  }
+}

@@ -1,0 +1,20 @@
+.underlined-field {
+  :deep(.q-field__control) {
+    min-height: 28px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  :deep(.q-field__control:before),
+  :deep(.q-field__control:after) {
+    border: 0;
+    border-bottom: 1px solid var(--border-medium);
+  }
+
+  :deep(.q-field__native),
+  :deep(.q-field__input),
+  :deep(.q-field__label) {
+    color: var(--text-base);
+  }
+}

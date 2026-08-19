@@ -1,0 +1,71 @@
+name: 🐛 Bug Report
+description: Report an issue with Scoreko
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! 
+        Please provide as much information as possible to help us fix the issue faster.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+      placeholder: Tell us what went wrong...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: How can we trigger this bug?
+      placeholder: |
+        1. Open the app / dashboard
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      description: Tell us what should have happened instead.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What OS are you using?
+      placeholder: e.g., Windows 11, macOS 14, Ubuntu 24.04
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of Scoreko are you running? (or commit hash if running from source)
+      placeholder: e.g., 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: install_method
+    attributes:
+      label: Installation / Run Method
+      description: How are you running Scoreko?
+      options:
+        - Windows Installer (.exe)
+        - macOS Disk Image (.dmg)
+        - Linux AppImage
+        - Scoreko Source (npm run start)
+        - Docker
+        - Other (please specify below)
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs & Screenshots
+      description: Paste any relevant logs or attach screenshots.

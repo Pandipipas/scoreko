@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PacksConfig",
+  "type": "object",
+  "properties": {
+    "baseUrl": {
+      "type": "string",
+      "default": "https://gitea.panver.cloud/"
+    },
+    "owner": {
+      "type": "string",
+      "default": "Pandipipas"
+    },
+    "repo": {
+      "type": "string",
+      "default": "scoreko-packs"
+    },
+    "branch": {
+      "type": "string",
+      "default": "main"
+    }
+  },
+  "required": ["baseUrl", "owner", "repo", "branch"],
+  "additionalProperties": false,
+  "default": {
+    "baseUrl": "https://gitea.panver.cloud/",
+    "owner": "Pandipipas",
+    "repo": "scoreko-packs",
+    "branch": "main"
+  }
+}

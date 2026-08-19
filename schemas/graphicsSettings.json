@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scoreboardSkin": {
+      "type": "string",
+      "default": "opeik-runback"
+    },
+    "commentarySkin": {
+      "type": "string",
+      "default": "opeik-commentary"
+    },
+    "locale": {
+      "type": "string",
+      "enum": ["en", "es"],
+      "default": "en"
+    },
+    "defaultCountry": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "required": ["scoreboardSkin", "commentarySkin", "locale", "defaultCountry"],
+  "default": {
+    "scoreboardSkin": "opeik-runback",
+    "commentarySkin": "opeik-commentary",
+    "locale": "en",
+    "defaultCountry": ""
+  }
+}

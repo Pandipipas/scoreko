@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+      - name: Checkout scoreko
+        uses: actions/checkout@v4
+        with:
+          repository: Pandipipas/scoreko
+          path: scoreko
+
+      - name: Checkout scoreko-wrapper
+        uses: actions/checkout@v4
+        with:
+          repository: Pandipipas/scoreko-wrapper
+          path: scoreko/scoreko-wrapper
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install scoreko dependencies
+        working-directory: scoreko
+        run: npm install
+
+      - name: Install wrapper dependencies
+        working-directory: scoreko/scoreko-wrapper
+        run: npm install
+
+      - name: Setup .env file
+        working-directory: scoreko/scoreko-wrapper
+        shell: bash
+        run: |
+          sed 's|http://gitea.local/api/v1/repos/OWNER/REPO/releases/latest|https://api.github.com/repos/Pandipipas/scoreko/releases/latest|' .env.example > .env.tmp
+          sed 's|http://gitea.local/OWNER/REPO/releases|https://github.com/Pandipipas/scoreko/releases|' .env.tmp > .env
+          rm .env.tmp
+
+      - name: Publish Windows App
+        if: matrix.os == 'windows-latest'
+        working-directory: scoreko/scoreko-wrapper
+        run: npm run dist:win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Linux App
+        if: matrix.os == 'ubuntu-latest'
+        working-directory: scoreko/scoreko-wrapper
+        run: npm run dist:linux
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Mac App
+        if: matrix.os == 'macos-latest'
+        working-directory: scoreko/scoreko-wrapper
+        run: npm run dist:mac
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

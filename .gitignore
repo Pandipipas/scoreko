@@ -1,0 +1,28 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# NodeCG built files
+/dashboard/
+/extension/
+/graphics/
+/shared/dist/
+/shared/*.js
+
+
+# Local runtime database
+/db/
+*.sqlite3
+/scoreko-wrapper/
+/packs/
+/cfg/
+
+# IDE settings
+.vscode/

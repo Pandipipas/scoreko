@@ -1,0 +1,22 @@
+{
+  "extends": "@tsconfig/node24/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.extension.tsbuildinfo",
+    "rootDir": "./src",
+    "outDir": ".",
+    "verbatimModuleSyntax": true,
+  },
+  "include": [
+    "./src/extension/**/*.ts",
+    "./src/shared/**/*.ts",
+    "./src/types/**/*.d.ts"
+  ],
+  "exclude": [
+    "./src/types/augment-window.d.ts",
+    "**/*.test.ts"
+  ]
+}

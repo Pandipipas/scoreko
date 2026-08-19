@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PackRegistry",
+  "type": ["object", "null"],
+  "properties": {
+    "schemaVersion": {
+      "type": "number"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "gameVersion": { "type": "string" },
+          "totalSizeBytes": { "type": "number" },
+          "logoPath": { "type": "string" },
+          "characterCount": { "type": "number" },
+          "palette": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "string" },
+              "end": { "type": "string" }
+            },
+            "required": ["start", "end"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["id", "name", "gameVersion", "totalSizeBytes", "logoPath", "characterCount", "palette"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["schemaVersion", "updatedAt", "packs"],
+  "additionalProperties": false,
+  "default": null
+}
